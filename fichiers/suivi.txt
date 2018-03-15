@@ -8,4 +8,4 @@ Ajout des jeux d'essais de Facture, Client et vérification de la couverture de 
 
 Philippe :
 Appliquer un mode au programme qui permet de gérer les erreurs de lecture de fichier
-Ajout des yeux d'essais de Facture et Plat
+Ajout des jeux d'essais de Facture et Plat
