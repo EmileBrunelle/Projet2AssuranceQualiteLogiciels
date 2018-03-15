@@ -6,13 +6,14 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class exporterText {
 
 	public exporterText(Facture facture, String cheminFichier) {
-
-		DateTimeFormatter formatter = DateTimeFormat.forPattern("dd/MM/yyyy-HH:mm");
-		DateTime dt = formatter.parseDateTime(string);
+		
+		String dt = new SimpleDateFormat("dd/MM/yyyy-HH:mm").format(Calendar.getInstance().getTime());
 		
 		Path chemin = Paths.get(cheminFichier + dt + ".txt");
 

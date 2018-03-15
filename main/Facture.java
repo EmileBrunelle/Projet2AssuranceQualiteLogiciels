@@ -41,12 +41,12 @@ public class Facture {
 	}
 	
 	// Calcul des taxes (TPS 5% et TVQ 10%)
-	public double calculerTaxes(double prix) {
+	public static double calculerTaxes(double prix) {
 		return prix * 0.05 + prix * 0.10;
 	}
 	
 	// Calcul du total avec les taxes
-	public double calculerTotalAvecTaxes(double prix) {
+	public static double calculerTotalAvecTaxes(double prix) {
 		return prix + calculerTaxes(prix);
 	}
 
