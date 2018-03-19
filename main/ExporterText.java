@@ -9,9 +9,9 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class exporterText {
+public class ExporterText {
 
-	public exporterText(Facture facture, String cheminFichier) {
+	public ExporterText(Facture facture, String cheminFichier) {
 		
 		String dt = new SimpleDateFormat("dd/MM/yyyy-HH:mm").format(Calendar.getInstance().getTime());
 		

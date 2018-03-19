@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class importerText {
+public class ImporterText {
 	private Facture facture;
 	private List<Plat> listePlats;
 	private BufferedReader lecture;
 
-	public importerText(String cheminFichier) throws IOException {
+	public ImporterText(String cheminFichier) throws IOException {
 
 		String ligne = "";
 

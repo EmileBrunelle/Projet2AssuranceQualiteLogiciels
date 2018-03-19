@@ -9,8 +9,8 @@ public class Main {
 	public static void main(String[] args) {
 		Facture facture;
 		try {
-			facture = new importerText(cheminFichierImport).getFacture();
-			new exporterText(facture, cheminFichierExport);
+			facture = new ImporterText(cheminFichierImport).getFacture();
+			new ExporterText(facture, cheminFichierExport);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
