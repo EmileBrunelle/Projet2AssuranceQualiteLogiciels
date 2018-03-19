@@ -17,7 +17,7 @@ import main.Client;
 import main.Facture;
 
 /**
- * @author Émile
+ * @author Ã‰mile Brunelle
  *
  */
 public class TestFacture {
