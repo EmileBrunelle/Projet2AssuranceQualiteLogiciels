@@ -66,11 +66,6 @@ public class TestFacture {
 	public void testGetListeClientVide() {
 		assertEquals(new ArrayList<Client>(),facture.getListeClient());
 	}
-	
-	@Test
-	public void testAjoutClient() {
-		facture.addClient(new Client("Jean"));
-	}
 
 	/**
 	 * Test method for {@link main.Facture#addClient(main.Client)}.
@@ -114,7 +109,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerTaxes() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(facture.calculerTaxes(1), 0.15);
 	}
 
 	/**
@@ -122,7 +117,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerTotalAvecTaxes() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(facture.calculerTotalAvecTaxes(1), 1.15);
 	}
 
 }
