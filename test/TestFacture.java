@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import main.Client;
 import main.Facture;
+import main.Plat;
 
 /**
  * @author Émile Brunelle
@@ -20,20 +21,8 @@ import main.Facture;
 public class TestFacture {
 	
 	Facture facture;
+	Plat plat;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
 	/**
 	 * @throws java.lang.Exception
@@ -41,6 +30,8 @@ public class TestFacture {
 	@Before
 	public void setUp() throws Exception {
 		facture = new Facture();
+		plat = new Plat("Bagel");
+		plat.setPrix(1.50);
 	}
 
 	/**
@@ -50,15 +41,7 @@ public class TestFacture {
 	public void tearDown() throws Exception {
 		facture = null;
 	}
-
-	/**
-	 * Test method for {@link main.Facture#Facture()}.
-	 */
-	@Test
-	public void testFacture() {
-		fail("Not yet implemented"); // TODO
-	}
-
+	
 	/**
 	 * Test method for {@link main.Facture#getListeClient()}.
 	 */
@@ -85,7 +68,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testAfficherFacture() {
-		fail("Not yet implemented"); // TODO
+		facture.afficherFacture();
 	}
 
 	/**
@@ -93,7 +76,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testToString() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(facture.toString(), "Bienvenue chez Barette !\nFactures:\n");
 	}
 
 	/**
@@ -101,7 +84,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerMontantFacture() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(3, facture.calculerMontantFacture(plat, 2));
 	}
 
 	/**
@@ -109,7 +92,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerTaxes() {
-		assertEquals(facture.calculerTaxes(1), 0.15);
+		assertEquals(0.15, facture.calculerTaxes(1));
 	}
 
 	/**
@@ -117,7 +100,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerTotalAvecTaxes() {
-		assertEquals(facture.calculerTotalAvecTaxes(1), 1.15);
+		assertEquals(1.15, facture.calculerTotalAvecTaxes(1));
 	}
 
 }
