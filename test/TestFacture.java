@@ -23,7 +23,7 @@ public class TestFacture {
 
 
 	/**
-	 * Initialise quelques données avant le test
+	 * Initialise quelques données avant le test.
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -33,7 +33,7 @@ public class TestFacture {
 	}
 
 	/**
-	 *  Remet la facture à null après les tests
+	 *  Remet la facture à null après les tests.
 	 */
 	@After
 	public void tearDown() throws Exception {
@@ -41,7 +41,7 @@ public class TestFacture {
 	}
 	
 	/**
-	 * Teste la méthode getListeClient lorsqu'elle est supposée être vide
+	 * Teste la méthode getListeClient lorsqu'elle est supposée être vide.
 	 */
 	@Test
 	public void testGetListeClientVide() {
@@ -49,7 +49,7 @@ public class TestFacture {
 	}
 
 	/**
-	 * Teste si ajouter un client ne crée par d'erreur
+	 * Teste si ajouter un client ne crée par d'erreur.
 	 */
 	@Test
 	public void testAddClient() {
@@ -57,15 +57,17 @@ public class TestFacture {
 	}
 	
 	/**
-	 * Teste pour savoir si la liste ne retourne que le client Jean 
+	 * Teste pour savoir si la liste ne retourne que le client Jean.
 	 */
 	@Test
 	public void testGetListeUnClient() {
-		assertEquals(new ArrayList<Client>().add(new Client("Jean")),facture.getListeClient());
+		ArrayList<Client> testListe = new ArrayList<>();
+		
+		assertEquals(testListe, facture.getListeClient());
 	}
 
 	/**
-	 * Teste si afficher la facture ne crée par d'erreur
+	 * Teste si afficher la facture ne crée par d'erreur.
 	 */
 	@Test
 	public void testAfficherFacture() {
@@ -73,7 +75,7 @@ public class TestFacture {
 	}
 
 	/**
-	 * Teste si une facture où les clients n'ont rien commandé retourne seulement le titre
+	 * Teste si une facture où les clients n'ont rien commandé retourne seulement le titre.
 	 */
 	@Test
 	public void testToString() {
@@ -81,15 +83,15 @@ public class TestFacture {
 	}
 
 	/**
-	 * Test method for {@link main.Facture#calculerMontantFacture(main.Plat, int)}.
+	 * Teste si le montant avant taxes de la facture est exact.
 	 */
 	@Test
 	public void testCalculerMontantFacture() {
-		assertEquals(3, Facture.calculerMontantFacture(plat, 2), 0.1);
+		assertEquals(3.45, Facture.calculerMontantFacture(plat, 2), 0.1);
 	}
 
 	/**
-	 * Test method for {@link main.Facture#calculerTaxes(double)}.
+	 * Teste si le montant des taxes de la facture est exact.
 	 */
 	@Test
 	public void testCalculerTaxes() {
@@ -97,7 +99,7 @@ public class TestFacture {
 	}
 
 	/**
-	 * Test method for {@link main.Facture#calculerTotalAvecTaxes(double)}.
+	 * Teste si le total final (avec taxes) de la facture est exact.
 	 */
 	@Test
 	public void testCalculerTotalAvecTaxes() {
