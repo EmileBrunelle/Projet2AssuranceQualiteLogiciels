@@ -49,7 +49,7 @@ public class TestFacture {
 	}
 
 	/**
-	 * Test method for {@link main.Facture#addClient(main.Client)}.
+	 * Teste si ajouter un client ne crée par d'erreur
 	 */
 	@Test
 	public void testAddClient() {
@@ -62,7 +62,7 @@ public class TestFacture {
 	}
 
 	/**
-	 * Test method for {@link main.Facture#afficherFacture()}.
+	 * Teste si afficher la facture ne crée par d'erreur
 	 */
 	@Test
 	public void testAfficherFacture() {
@@ -82,7 +82,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerMontantFacture() {
-		assertEquals(3, facture.calculerMontantFacture(plat, 2));
+		assertEquals(3, Facture.calculerMontantFacture(plat, 2), 1);
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerTaxes() {
-		assertEquals(0.15, facture.calculerTaxes(1));
+		assertEquals(0.15, Facture.calculerTaxes(1), 1);
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerTotalAvecTaxes() {
-		assertEquals(1.15, facture.calculerTotalAvecTaxes(1));
+		assertEquals(1.15, Facture.calculerTotalAvecTaxes(1), 1);
 	}
 
 }
