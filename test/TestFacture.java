@@ -23,7 +23,7 @@ public class TestFacture {
 
 
 	/**
-	 * @throws java.lang.Exception
+	 * Initialise quelques données avant le test
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -33,7 +33,7 @@ public class TestFacture {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 *  Remet la facture à null après les tests
 	 */
 	@After
 	public void tearDown() throws Exception {
@@ -41,11 +41,11 @@ public class TestFacture {
 	}
 	
 	/**
-	 * Test method for {@link main.Facture#getListeClient()}.
+	 * Teste la méthode getListeClient lorsqu'elle est supposée être vide
 	 */
 	@Test
 	public void testGetListeClientVide() {
-		assertEquals(new ArrayList<Client>(),facture.getListeClient());
+		assertEquals(new ArrayList<Client>(), facture.getListeClient());
 	}
 
 	/**
@@ -56,6 +56,9 @@ public class TestFacture {
 		facture.addClient(new Client("Jean"));
 	}
 	
+	/**
+	 * Teste pour savoir si la liste ne retourne que le client Jean 
+	 */
 	@Test
 	public void testGetListeUnClient() {
 		assertEquals(new ArrayList<Client>().add(new Client("Jean")),facture.getListeClient());
@@ -70,11 +73,11 @@ public class TestFacture {
 	}
 
 	/**
-	 * Test method for {@link main.Facture#toString()}.
+	 * Teste si une facture où les clients n'ont rien commandé retourne seulement le titre
 	 */
 	@Test
 	public void testToString() {
-		assertEquals(facture.toString(), "Bienvenue chez Barette !\nFactures:\n");
+		assertEquals("Bienvenue chez Barette !\nFactures:\n", facture.toString());
 	}
 
 	/**
@@ -82,7 +85,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerMontantFacture() {
-		assertEquals(3, Facture.calculerMontantFacture(plat, 2), 1);
+		assertEquals(3, Facture.calculerMontantFacture(plat, 2), 0.1);
 	}
 
 	/**
@@ -90,7 +93,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerTaxes() {
-		assertEquals(0.15, Facture.calculerTaxes(1), 1);
+		assertEquals(0.15, Facture.calculerTaxes(1), 0.1);
 	}
 
 	/**
@@ -98,7 +101,7 @@ public class TestFacture {
 	 */
 	@Test
 	public void testCalculerTotalAvecTaxes() {
-		assertEquals(1.15, Facture.calculerTotalAvecTaxes(1), 1);
+		assertEquals(1.15, Facture.calculerTotalAvecTaxes(1), 0.1);
 	}
 
 }

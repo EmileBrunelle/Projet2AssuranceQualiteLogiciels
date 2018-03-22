@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public class Client {
 	private String nom;
-	private double montantFacture;
+	private double montantFacture = 0;
 
 	// Initialise avec le nom du client
 	public Client(String nom) {
