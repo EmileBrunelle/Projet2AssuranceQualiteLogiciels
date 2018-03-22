@@ -7,5 +7,6 @@ Si la facture est vide, elle ne sera pas affiché (fait)
 Ajout des jeux d'essais de Facture, Client et vérification de la couverture de tous les tests.
 
 Philippe :
+Refactoring de ImporterText
 Appliquer un mode au programme qui permet de gérer les erreurs de lecture de fichier
 Ajout des jeux d'essais de ImporterText et Plat

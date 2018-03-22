@@ -1,33 +1,32 @@
 package main;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ImporterText {
-	private Facture facture;
-	private List<Plat> listePlats;
+	private Facture facture = new Facture();
+	private List<Plat> listePlats = new ArrayList<>();
 	private BufferedReader lecture;
 
 	public ImporterText(String cheminFichier) throws IOException {
+		lectureFichier(cheminFichier);
+	}
 
+	
+	private void lectureFichier(String cheminFichier) throws FileNotFoundException, IOException {
 		String ligne = "";
 
 		int categorie = -1;
-
-		this.facture = new Facture();
-
-		this.listePlats = new ArrayList<>();
 
 		lecture = new BufferedReader(new FileReader(cheminFichier));
 
 		try {
 
 			while ((ligne = lecture.readLine()) != null) {
-
-				// System.out.println( ligne );
 
 				if (ligne.equals("Clients :")) {
 
@@ -73,42 +72,7 @@ public class ImporterText {
 
 						quantite = Integer.parseInt(quantiteTemp);
 
-						int indiceClient = -1;
-						int indcePlat = -1;
-
-						for (int i = 0; i < this.facture.getListeClient().size(); i++) {
-							if (this.facture.getListeClient().get(i).getNom().equals(nomClient)) {
-								indiceClient = i;
-								break;
-							}
-						}
-
-						for (int i = 0; i < this.listePlats.size(); i++) {
-							if (this.listePlats.get(i).getNom().equals(nomPlat)) {
-								indcePlat = i;
-								break;
-							}
-						}
-
-						if (indiceClient != -1) {
-
-							if (indcePlat != -1) {
-
-								double montantFacture = this.facture.getListeClient().get(indiceClient)
-										.getMontantFacture();
-
-								montantFacture += Facture.calculerMontantFacture(this.listePlats.get(indcePlat),
-										quantite);
-
-								this.facture.getListeClient().get(indiceClient).setMontantFacture(montantFacture);
-
-							} else {
-								throw new Exception("Plat n'existe pas");
-							}
-
-						} else {
-							throw new Exception("Client n'existe pas");
-						}
+						entreeDansProgramme(nomClient, nomPlat, quantite);
 
 					}
 
@@ -119,12 +83,50 @@ public class ImporterText {
 			this.facture.afficherFacture();
 
 		} catch (Exception e) {
-
 			System.out.println(e.getMessage());
-
 		}
 
 		lecture.close();
+	}
+
+
+	private void entreeDansProgramme(String nomClient, String nomPlat, int quantite) throws Exception {
+		int indiceClient = -1;
+		int indcePlat = -1;
+
+		for (int i = 0; i < this.facture.getListeClient().size(); i++) {
+			if (this.facture.getListeClient().get(i).getNom().equals(nomClient)) {
+				indiceClient = i;
+				break;
+			}
+		}
+
+		for (int i = 0; i < this.listePlats.size(); i++) {
+			if (this.listePlats.get(i).getNom().equals(nomPlat)) {
+				indcePlat = i;
+				break;
+			}
+		}
+
+		if (indiceClient != -1) {
+
+			if (indcePlat != -1) {
+
+				double montantFacture = this.facture.getListeClient().get(indiceClient)
+						.getMontantFacture();
+
+				montantFacture += Facture.calculerMontantFacture(this.listePlats.get(indcePlat),
+						quantite);
+
+				this.facture.getListeClient().get(indiceClient).setMontantFacture(montantFacture);
+
+			} else {
+				throw new Exception("Plat n'existe pas");
+			}
+
+		} else {
+			throw new Exception("Client n'existe pas");
+		}
 	}
 
 	public Facture getFacture() {
