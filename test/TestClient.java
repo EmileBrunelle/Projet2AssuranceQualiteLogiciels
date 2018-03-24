@@ -3,83 +3,70 @@ package test;
 import static org.junit.Assert.*;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+
+import main.Client;
 
 /**
  * @author Émile
+ * 
+ * TestClient teste les différentes fonctionnalités la classe Client.
  *
  */
 public class TestClient {
+	
+	Client client;
 
 	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
+	 * Initialise un client avant le test.
 	 */
 	@Before
 	public void setUp() throws Exception {
+		client = new Client("Roger");
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * Remet le client à null après les tests.
 	 */
 	@After
 	public void tearDown() throws Exception {
+		client = null;
 	}
 
 	/**
-	 * Test method for {@link main.Client#Client(java.lang.String)}.
-	 */
-	@Test
-	public void testClient() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link main.Client#setMontantFacture(double)}.
-	 */
-	@Test
-	public void testSetMontantFacture() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link main.Client#getNom()}.
+	 * Teste si le retour est bien le bon nom initialisé ici haut.
 	 */
 	@Test
 	public void testGetNom() {
-		fail("Not yet implemented"); // TODO
+		assertEquals("Roger", client.getNom());
 	}
 
 	/**
-	 * Test method for {@link main.Client#getMontantFacture()}.
+	 * Ajoute un montant de facture au client et teste si le retour de la méthode getMontantFacture() est bon.
 	 */
 	@Test
 	public void testGetMontantFacture() {
-		fail("Not yet implemented"); // TODO
+		client.setMontantFacture(42.84);
+		assertEquals(42.84, client.getMontantFacture(), 0.01);
 	}
 
 	/**
-	 * Test method for {@link main.Client#toString()}.
+	 * Teste la méthode toString() lorsque la facture contient un montant.
 	 */
 	@Test
-	public void testToString() {
-		fail("Not yet implemented"); // TODO
+	public void testToStringNonVide() {
+		client.setMontantFacture(42.84);
+		assertEquals("Roger 42,84$", client.toString());
+	}
+	
+	/**
+	 * Teste la méthode toString() lorsque la facture ne contient pas de montant.
+	 */
+	@Test
+	public void testToStringVide() {
+		client.setMontantFacture(0);
+		assertEquals("", client.toString());
 	}
 
 }
