@@ -1,0 +1,13 @@
+Partage des tâches :
+
+Émile :
+La facture de sortie s'appelle maintenant Facture-du-date-heure.txt (fait)
+Ajout du calcul des taxes et elles sont à la sortie (fait)
+Si la facture est vide, elle ne sera pas affiché (fait)
+Ajout des jeux d'essais de Facture, Client et vérification de la couverture de tous les tests. (fait, attente des tests de Philippe pour la couverture)
+Doit merge la branche dev et prod à 22h45 pour donner la chance aux coéquipiers de commit leurs modifications. (fait)
+
+Philippe :
+Refactoring de ImporterText (en partie)
+Appliquer un mode au programme qui permet de gérer les erreurs de lecture de fichier (en partie)
+Ajout des jeux d'essais de ImporterText et Plat (Plat est fait)

@@ -1,10 +1,10 @@
-package Projet2AssuranceQualiteLogiciels;
+package main;
 
 import java.text.DecimalFormat;
 
 public class Client {
 	private String nom;
-	private double montantFacture;
+	private double montantFacture = 0;
 
 	// Initialise avec le nom du client
 	public Client(String nom) {
@@ -30,7 +30,12 @@ public class Client {
 	@Override
 	public String toString() {
 		DecimalFormat decimalFormat = new DecimalFormat("#0.00");
-		return nom + ' ' + decimalFormat.format(montantFacture) + "$";
+		String ligneFacture;
+		if (montantFacture != 0)
+			ligneFacture = nom + ' ' + decimalFormat.format(montantFacture) + "$";
+		else
+			ligneFacture = "";
+		return ligneFacture;
 	}
 
 }
