@@ -13,7 +13,7 @@ public class ExporterText {
 
 	public ExporterText(Facture facture, String cheminFichier) {
 		
-		String dt = new SimpleDateFormat("dd/MM/yyyy-HH:mm").format(Calendar.getInstance().getTime());
+		String dt = new SimpleDateFormat("dd/MM/yyyy-HH-mm").format(Calendar.getInstance().getTime());
 		
 		Path chemin = Paths.get(cheminFichier + dt + ".txt");
 
